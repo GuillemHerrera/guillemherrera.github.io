@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Iseo</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="img/beer.svg" />
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="bares.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script type="text/javascript" src="currentbar.js"></script>                
+    </head>
+    
+    <body>
+    <div id="page-wrap">    
+        <div class="header">
+            <div class="header-logos">
+                <p class="logo"><img src="img/logo.jpeg" /></p>
+                <p class="title">Unete a nuestro club de bebedores!</p>
+            </div>
+            <div class="menu">
+                <ul class="menu-content">
+                    <li class="menu-items"><a href="index.html">Home</a></li>
+                    <li class="menu-items current"><a href="destacadomes.html">Bares</a></li>
+                    <li class="menu-items"><a href="closebars.html">Bares que tengo cerca</a></li>
+                </ul>           
+            </div>
+            <div class="difuminat"></div>
+        </div>
+        <div class="content">
+            <div class="current-bar">
+            <h1>Los mejores bares del pueblo</h1>
+            <h2 id="name">Iseo</h2>
+                <div class="current-bar-text">
+                    <p id="bar-desc"></p>
+                    <p id="bar-telf"></p>
+                    <p id="bar-adress"></p>
+                    <h4>Recomendaciones</h4>
+                    <ul class="list">
+                        <li id="tapa1"></li>
+                        <li id="tapa2"></li>
+                        <li id="tapa3"></li>
+                    </ul>
+                    <div class="star-contenedor">
+                            <p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+                            <p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+                            <p class="stars"><img class="img-star" src="img/staroff.svg" /></p>
+                    </div>
+                </div>
+                <div class="current-bar-img">
+                    <p><img id="img1" /></p>
+                    <p><img id="img2" /></p>
+                </div>
+            </div>
+            <div id="map-canvas"></div>
+            <div class="enlace-bares">
+                <div class="enlace-bares-thumb">
+                <p><a href="destacadomes.html"><img src="img/detallebar.jpeg"/></a></p>
+                <p>La Cope</p>
+                </div>
+                 <div class="enlace-bares-thumb">
+                <p><a href="bar1.html"><img src="img/cafedelcentre.jpg"/></a></p>
+                <p>El Centru</p>
+                </div>
+                 <div class="enlace-bares-thumb">
+                <p><a href="bar2.html"><img src="img/detallebar2.jpeg"/></a></p>
+                <p>Festuk Café</p>
+                </div>
+                 <div class="enlace-bares-thumb">
+                <p><a href="bar3.html"><img src="img/detallebar3.jpeg"/></a></p>
+                <p>Iseo</p>
+                </div>
+                
+            </div>
+        </div>   
+        <div class="footer">    
+            <p class="sponsor">Patrocinado por: </p>
+            <p class="img-sponsor">
+                <img src="img/cristal.png" />
+                <img src="img/duff.png" />
+                <img src="img/poker.png" />
+                <img src="img/gallo.jpeg" /></p>
+        </div>
+    </div>
+    </body>
+</html>

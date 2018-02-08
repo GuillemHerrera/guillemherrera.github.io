@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <title>Los mejores bares</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="img/beer.svg" />
+      	<link rel="stylesheet" href="style.css">
+      	<script type="text/javascript" src="bares.js"></script>
+      	<script type="text/javascript">
+	    	window.onload = function(){
+
+		    	document.getElementById('popup-close').onclick = function(){
+		        document.getElementById('popup').style.display='none';}
+				
+				var x = document.querySelectorAll(".bar-content, .bar-destacado-content");
+
+		    	for (var i = 0; i < x.length; i++) {
+		    		var h = x[i].firstElementChild.firstChild.textContent;
+
+		    		function locateUrl(binfo){
+		    			if (binfo.name == h){
+			    			var url = binfo.url;
+			    			x[i].addEventListener("click", function(){
+			    				window.open(url,"_self");
+			    			});
+		    			}
+		    		}
+		    		bares.forEach(locateUrl);
+		    	}
+			}
+		    
+    	</script>
+	</head>
+    
+    <body>
+    <div id="page-wrap">	
+   		<div class="header">
+	        <div class="header-logos">
+	            <p class="logo"><img src="img/logo.jpeg" /></p>
+	            <p class="title"> Unete a nuestro club de bebedores!</p>
+	        </div>
+	        <div class="menu">
+	        	<ul class="menu-content">
+		            <li class="menu-items current"><a href="index.html">Home</a></li>
+		            <li class="menu-items"><a href="destacadomes.html">Bares</a></li>
+		            <li class="menu-items"><a href="closebars.html">Bares que tengo cerca</a></li>
+		        </ul>	        
+	        </div>
+	        <div class="difuminat"></div>
+    	</div>    
+    	<div class="content">
+	    	<div class="us">
+	    		<h1>Los mejores bares del pueblo</h1>
+	    		<p> Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia.</p>
+	    		<p> Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. Pellentesque nec tincidunt tellus. Vestibulum vulputate elit nec felis ullamcorper, eget porttitor orci elementum.</p>
+	    	</div>
+	    	<div class="bar-destacado">
+	    		<h2>El bar destacado del mes!</h2>
+    			<div class="bar-destacado-content">
+	    			<h3>La Cope</h3>
+	    			<div class="bar-destacado-img">
+		    			<p><img class="img-bar" src="img/detallebar.jpeg"/></p>
+		    			<div class="star-contenedor">
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+	    				</div>
+	    			</div>
+	    			<div class="bar-destacado-text">
+	    			<p class="ficha-bar-txt">Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. 
+	    			</p>
+	    			<p class="ficha-bar-txt">Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. Pellentesque nec tincidunt tellus. Vestibulum vulputate elit nec felis ullamcorper, eget porttitor orci elementum.
+	    			</p>
+	    			</div>  
+	    			<hr/>
+	    		</div>
+	    	</div>
+	    	<div class="bares">
+	    		<h2>Otros bares buenos para visitar</h2>
+    			<div class="bar-content">
+	    			<h3>El Centru</h3>
+	    			<div class="bar-img">
+		    			<p><img class="img-bar" src="img/cafedelcentre.jpg"/></p>
+		    			<div class="star-contenedor">
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+	    				</div>
+	    			</div>
+	    			<div class="bar-text">
+	    			<p class="ficha-bar-txt">Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. 
+	    			</p>
+	    			<p class="ficha-bar-txt"><strong>Especialidad: </strong>Cerveza negra i pilsen</p>
+	    			<p class="ficha-bar-txt"><strong>Horarios: </strong>09:00 - 20:00</p>
+	    			</div>
+	    		</div>  
+	    		<div class="bar-content">
+	    			<h3>Festuk Café</h3>
+	    			<div class="bar-img">
+		    			<p><img class="img-bar" src="img/detallebar2.jpeg"/></p>
+		    			<div class="star-contenedor">
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staroff.svg" /></p>
+	    				</div>
+	    			</div>
+	    			<div class="bar-text">
+	    			<p class="ficha-bar-txt">Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. 
+	    			</p>
+	    			<p class="ficha-bar-txt"><strong>Especialidad: </strong>Cerveza Pale Ale</p>
+	    			<p class="ficha-bar-txt"><strong>Horarios: </strong>09:00 - 22:00</p>
+	    			</div>
+	    		</div>  
+	    		<div class="bar-content">
+	    			<h3>Iseo</h3>
+	    			<div class="bar-img">
+		    			<p><img class="img-bar" src="img/detallebar3.jpeg"/></p>
+		    			<div class="star-contenedor">
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staroff.svg" /></p>
+	    				</div>
+	    			</div>
+	    			<div class="bar-text">
+	    			<p class="ficha-bar-txt">Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. 
+	    			</p>
+	    			<p class="ficha-bar-txt"><strong>Especialidad: </strong>Cerveza negra</p>
+	    			<p class="ficha-bar-txt"><strong>Horarios: </strong>12:00 - 20:00</p>
+	    			</div>
+	    		</div>  
+	    		<div class="bar-content">
+	    			<h3>Bar Oeste</h3>
+	    			<div class="bar-img">
+		    			<p><img class="img-bar" src="img/detallebar4.jpeg"/></p>
+		    			<div class="star-contenedor">
+		    				<p class="stars"><img class="img-star" src="img/staron.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staroff.svg" /></p>
+		    				<p class="stars"><img class="img-star" src="img/staroff.svg" /></p>
+	    				</div>
+	    			</div>
+	    			<div class="bar-text">
+	    			<p class="ficha-bar-txt">Aenean condimentum ornare orci, nec laoreet dui bibendum vel. Phasellus aliquam felis sit amet lobortis ornare. Mauris finibus justo vitae aliquet volutpat. Suspendisse potenti. Aliquam sit amet magna et neque pretium lacinia. Quisque luctus diam ac risus interdum, a porta elit blandit. Praesent non nisl arcu. 
+	    			</p>
+	    			<p class="ficha-bar-txt"><strong>Especialidad: </strong>Cerveza sin alcohol</p>
+	    			<p class="ficha-bar-txt"><strong>Horarios: </strong>09:00 - 18:00</p>
+	    			</div>
+	    		</div>  
+	    	</div>
+	    	<div id="popup">
+	    		<p id="popup-close">X</p>
+	    		<div class="popup-content">
+	    		<p>Si crees que mereces un descuento en tus consumiciones grita sin contemplaciones:</p>
+	    		<p><strong>VIVA LA CERVEZA!</strong></p>
+	    		<p>y responderan a tu llamada en el bar destacado del mes</p>
+	    		</div>
+	    	</div>	
+    	</div>
+    	<div class="footer">	
+    		<p class="sponsor">Patrocinado por: </p>
+    		<p class="img-sponsor">
+    			<img src="img/cristal.png" />
+    			<img src="img/duff.png" />
+    			<img src="img/poker.png" />
+    			<img src="img/gallo.jpeg" /></p>
+    	</div>
+    </div>
+    </body>
+    
+</html>
