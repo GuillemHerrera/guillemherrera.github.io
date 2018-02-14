@@ -1,0 +1,10 @@
+Hola,
+
+Te presento aquí mi pagina web de las rutas de los bares de tapas. 
+
+Lamentablemente, no te fíes de ninguna de las informaciones que contienen los bares. Las ubicaciones son reales, y los bares existen, pero las tapas me las inventé, horarios y cervezas tambien. No vayas en su búsqueda.
+
+En la pagina principal hay unos enlaces a 4 bares, el ultimo de los cuales no tiene pagina especifica y redirige a otro bar. Podrás comprobarlo en el archivo 'bares.js'.
+En la pagina de bares cercanos, el bar con el enlace a una supuesta ruta, lo he marcado con el label 'L'. Es el bar 'Can Fanga'.
+
+Si bien el diseño no es mi fuerte, espero que te guste!    
