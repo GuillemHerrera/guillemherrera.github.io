@@ -14,17 +14,113 @@
      <script type="text/javascript" src="js/skycons.js"></script>
 
      <style>
+
+      ul,ol{list-style:none}
+      h1,h2,h3,h4,h5,h6,pre,code{font-size:1em;}
+      ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset{ margin:0;padding:0;line-height:1; list-style:none;}
+      a img,:link img,:visited img, fieldset{border:none;}
+      input[type=submit], input[type=reset], input[type=button] { *filter:chroma(color=#000000); }
+
        body {
          margin: 0;
          padding: 0;
          overflow: hidden;
+         font-size: 10px;
        }
        #map {
          height: 100%;
          width: 100%;
        }
+       #legend{
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        width: 50%;
+        min-width: 400px;
+        height: 90px;
+        margin: auto;
+        background-color: #ffffff;
+       }
+
+       #raster-wind, #icons-wind{ 
+        width: 49%;
+        height: inherit;
+        display: inline-block;
+      }
+
+      .raster-wind-color{
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(238,206,206, 0.4) 5%, rgba(179,100,188, 0.7) 15%, rgba(63,33,59, 0.8) 25%, rgba(116,76,172, 0.9) 50%, rgba(70,0,175,1) 100%);
+      }
+      .raster-wind-value{
+        position: relative;
+        width: 100%;
+        height: 15px;
+      }
+
+      .w0 {
+        position: absolute;
+        left: 0;
+      }
+
+      .w50{
+        display: block;
+        width: 45px;
+        margin: auto;
+      }
+
+      .w100 {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .icons-wind-size{
+        xxxdisplay: inline-block;
+        text-align: center;
+      }
+      .icon-img{
+        display: inline-block;
+        width: 30%;
+        height: auto;
+      }
+
+      .icon-img span {position: relative;}
+
+      .km10 {width: 25px; height: 25px;}
+      .km25 {width: 45px; height: 45px;}
+      .km40 {width: 66px; height: 66px;}
+      
+      .text{
+        position: relative;
+        bottom: -3px;
+      }
+
+      #click {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        width: 50%;
+        min-width: 400px;
+        height: auto;
+        margin: auto;
+        background-color: #ffffff;
+       }
+      
+      #click p {
+        padding: 5px;
+      }
+      .click-text {
+        font-size: 15px;
+        font-weight: bold;
+      }
+
        div.mapboxgl-popup-content {text-align: center;}
+      
      </style>
+
      <script type="text/javascript">
       var map;
       var boundStationsArray = [];
@@ -47,7 +143,7 @@
              map.on('load', function () {
                   map.addSource("windLayer", {
                       type: "raster",
-                      tiles: ["https://tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=5e92732603fbd313828ea9351de0c78c"],
+                      tiles: ["https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=5e92732603fbd313828ea9351de0c78c"],
                   });  //fin map source
                   map.addLayer({
                       'id': 'wind',
@@ -55,7 +151,7 @@
                       'source': 'windLayer',
                       'minzoom': 0,
                       'maxzoom': 20,
-                      'paint': {'raster-opacity': 0.3}
+                      'paint': {'raster-opacity': 1}
                       })
                 });
             
@@ -139,10 +235,10 @@
                                         stops: [
                                           [0, 0],
                                           [10, 1],
-                                          [30,2],
+                                          [30, 2],
                                           [60, 3]
                                         ],
-                                        default: 0.2
+                                        default: 0
                                         },
                                   "icon-rotate":{
                                         type: 'identity',
@@ -164,17 +260,7 @@
                         });
                        */
               }
-              /*
-              function displayStations(sinfo) {
-                for (var i = 0; i < sinfo.length; i++) {
-                  var station = sinfo[i];
-                  console.info(station);
-                  var marker = new mapboxgl.Marker()
-                  .setLngLat([station.lng, station.lat])
-                  .addTo(map);
-                };
-              }
-*/
+
               stationscall();
               window.setInterval(function() {
                               map.getSource('geojsonStations').setData(geojson);
@@ -226,45 +312,29 @@
                           }, 3000);
                 });
               
-             /*
-                    $.ajax({
-                    url: stationscall,
-                    method: "GET",
-                    dataType: "json",
-                    success: function (response) {
-                        
-                        boundStationsArray = response.weatherObservations;
-                        makeGeoJson(boundStationsArray);
-                        console.info(geojson);
-                        //alert(stationscall);  
-                    },
-                    complete: displayGeoJsonPoints()
-                });//fin ajax
-              }
-*/
               map.on('click', function (a) {
                     var lng = a.lngLat.lng;
                     var lat = a.lngLat.lat;
                     console.info(lat);
                     var preproxy = 'https://thingproxy.freeboard.io/fetch/'
                     var positioncall = preproxy +'https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/66b4870d52e4f5c95469bdc50d6c422f/' +
-                    lat+','+lng+'?exclude=hourly,daily,flags&units=si&lang=es'; 
+                    lat+','+lng+'?exclude=hourly,daily,flags&units=si'; 
                     console.info(positioncall);
                     $.ajax({
                     url: positioncall,
                     method: "GET",
                     dataType: "json",
                     success: function (response) {
-                                makeMarker(response);                     
+                                makePopup(response);                     
                     },
                 });//fin ajax//alert(lng);
 
                  });
-              function makeMarker(minfo){
+              function makePopup(minfo){
                 var popup = new mapboxgl.Popup()
                   .setLngLat([minfo.longitude, minfo.latitude])
                   .setHTML ('<p>'+minfo.currently.summary +'</p><canvas id="'+minfo.currently.icon+'" width="64" height="64">'+
-                  '</canvas></br>')
+                  '</canvas><p> Wind: '+minfo.currently.windSpeed+'m/s</p>')
                   .addTo(map);
                   var skycons = new Skycons({"color": "black"});
                   skycons.add(minfo.currently.icon, minfo.currently.icon);
@@ -275,6 +345,28 @@
    </head>
    <body>
      <div id="map"></div>
+     <div id="click">
+       <p class="click-text"> Click anywere on the map to show his current weather </p>
+       <p> Provided by: Darsky.net </p>
+     </div>
+     <div id="legend">
+      <div id="raster-wind">
+        <div class="raster-wind-color"></div>
+        <div class="raster-wind-value">
+          <span class="w0">0 m/s</span>
+          <span class="w50">50 m/s</span>
+          <span class="w100">100 m/s</span>
+        </div>
+        <p class="text">Provided by: Openweathermaps.org</p>
+      </div>
+      <div id="icons-wind">
+        <div class="icons-wind-size">
+          <p class="icon-img"><img class="km10" src="img/drawing.svg" /></br><span>10 km/h</span></p>
+          <p class="icon-img"><img class="km25" src="img/drawing.svg" /></br><span>25 km/h</span></p>
+          <p class="icon-img"><img class="km40" src="img/drawing.svg" /></br><span>40 km/h</span></p>
+        </div>
+        <p class="text">Provided by: geonames.org</p>
+     </div>
     
     </body>
    </html>
