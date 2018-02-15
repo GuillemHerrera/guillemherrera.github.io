@@ -34,8 +34,7 @@
        #legend{
         position: fixed;
         bottom: 20px;
-        left: 0;
-        right: 0;
+        right: 75px;
         width: 50%;
         min-width: 400px;
         height: 90px;
@@ -77,7 +76,6 @@
         top: 0;
       }
       .icons-wind-size{
-        xxxdisplay: inline-block;
         text-align: center;
       }
       .icon-img{
@@ -86,7 +84,7 @@
         height: auto;
       }
 
-      .icon-img span {position: relative;}
+      .icon-img span {position: relative;display: block;}
 
       .km10 {width: 25px; height: 25px;}
       .km25 {width: 45px; height: 45px;}
@@ -116,7 +114,26 @@
         font-size: 15px;
         font-weight: bold;
       }
+      p.icon-toggle {
+      position: absolute;
+      right: 20px;
+      bottom: 44px;
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+      }
 
+      p.icon-toggle span{
+        position: relative;
+        height: 2px;
+        width: 32px;
+        margin: 0 auto;
+        background: #ffffff;
+        display: block;
+        top: 50%;
+        margin-top: -1px;
+        box-shadow: 0 10px 0px 0px #ffffff, 0 -10px 0px 0px #ffffff;
+      }
        div.mapboxgl-popup-content {text-align: center;}
       
      </style>
@@ -134,10 +151,10 @@
                 container: 'map',
                 style: 'mapbox://styles/guillemherrera/cjdmb3def1gr92sp9g2j6qen1',
                 center: [2.16859, 41.3954],
-                zoom: 12,
+                zoom: 6,
                 minzoom: 3,
                 maxzoom: 10,
-                hash: true,
+                hash: false,
                 //pitch: 45
                 });
              map.on('load', function () {
@@ -238,7 +255,7 @@
                                           [30, 2],
                                           [60, 3]
                                         ],
-                                        default: 0
+                                        default: 0.5
                                         },
                                   "icon-rotate":{
                                         type: 'identity',
@@ -249,16 +266,6 @@
                                        }
                           });
                         });
-
-                        
-                        /*
-                        map.on('resize',function(){
-
-                          stationscall();
-                          displayGeoJsonPoints();
-                          //map.getSource('geojsonStations').setData(geojson);
-                        });
-                       */
               }
 
               stationscall();
@@ -278,24 +285,6 @@
                   map.getSource('geojsonStations').setData(geojson);
               }, 1000);
               });
-
-              //displayGeoJsonPoints();
-                //map.getSource('geojsonStations').setData(geojson);
-             /* 
-              map.on('moveend', function () {
-                stationscall();
-                //displayGeoJsonPoints();
-                //map.getSource('geojsonStations').setData(geojson);
-
-              });
-                     */     
-              /* map.on('click', function (e) {
-
-                    popup.setLngLat(e.features[0].geometry.coordinates)
-                    .setHTML(e.features[0].properties.windSpeed)
-                    .addTo(map);
-               });
-                */
                 
                 var popup2 = new mapboxgl.Popup()
                 map.on('mouseenter', 'stations', function (e) {
@@ -321,15 +310,15 @@
                     lat+','+lng+'?exclude=hourly,daily,flags&units=si'; 
                     console.info(positioncall);
                     $.ajax({
-                    url: positioncall,
-                    method: "GET",
-                    dataType: "json",
-                    success: function (response) {
-                                makePopup(response);                     
-                    },
-                });//fin ajax//alert(lng);
+                      url: positioncall,
+                      method: "GET",
+                      dataType: "json",
+                      success: function (response) {
+                                  makePopup(response);                     
+                      },
+                    });//fin ajax
 
-                 });
+              });
               function makePopup(minfo){
                 var popup = new mapboxgl.Popup()
                   .setLngLat([minfo.longitude, minfo.latitude])
@@ -340,6 +329,17 @@
                   skycons.add(minfo.currently.icon, minfo.currently.icon);
                   skycons.play();
               }
+              });
+
+              $(document).ready(function(){
+                $( ".icon-toggle" ).click(function() {
+                $( "#legend" ).toggle('slow');
+              });
+
+                $( "#map" ).click(function() {
+                $( "#click" ).hide('slow');
+
+              });
               });
      </script>
    </head>
@@ -361,12 +361,14 @@
       </div>
       <div id="icons-wind">
         <div class="icons-wind-size">
-          <p class="icon-img"><img class="km10" src="img/drawing.svg" /></br><span>10 km/h</span></p>
-          <p class="icon-img"><img class="km25" src="img/drawing.svg" /></br><span>25 km/h</span></p>
-          <p class="icon-img"><img class="km40" src="img/drawing.svg" /></br><span>40 km/h</span></p>
+          <p class="icon-img"><img class="km10" src="img/drawing.svg" /><span>10 km/h</span></p>
+          <p class="icon-img"><img class="km25" src="img/drawing.svg" /><span>25 km/h</span></p>
+          <p class="icon-img"><img class="km40" src="img/drawing.svg" /><span>40 km/h</span></p>
         </div>
         <p class="text">Provided by: geonames.org</p>
      </div>
+   </div>
+     <p class="icon-toggle"><span></span></p>
     
     </body>
    </html>
