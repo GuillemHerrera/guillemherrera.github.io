@@ -36,22 +36,26 @@
         bottom: 20px;
         right: 75px;
         width: 50%;
-        min-width: 400px;
+        min-width: 290px;
+        max-width: 500px;
         height: 90px;
         margin: auto;
+        border-radius: 5px;
         background-color: #ffffff;
        }
 
        #raster-wind, #icons-wind{ 
-        width: 49%;
-        height: inherit;
+        width: 47%;
+        height: auto;
         display: inline-block;
+        padding: 1px;
       }
 
       .raster-wind-color{
         width: 100%;
-        height: 40px;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(238,206,206, 0.4) 5%, rgba(179,100,188, 0.7) 15%, rgba(63,33,59, 0.8) 25%, rgba(116,76,172, 0.9) 50%, rgba(70,0,175,1) 100%);
+        height: 15px;
+        background:  linear-gradient(to right, rgba(0,0,255,0.6), rgba(0,255,255, 0.6),rgba(255,255,0.6), rgba(255,0,0,0.6));
+        xxbackground: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(238,206,206, 0.4) 5%, rgba(179,100,188, 0.7) 15%, rgba(63,33,59, 0.8) 25%, rgba(116,76,172, 0.9) 50%, rgba(70,0,175,1) 100%);
       }
       .raster-wind-value{
         position: relative;
@@ -64,13 +68,13 @@
         left: 0;
       }
 
-      .w50{
+      .w25{
         display: block;
         width: 45px;
         margin: auto;
       }
 
-      .w100 {
+      .w50 {
         position: absolute;
         right: 0;
         top: 0;
@@ -86,9 +90,9 @@
 
       .icon-img span {position: relative;display: block;}
 
-      .km10 {width: 25px; height: 25px;}
-      .km25 {width: 45px; height: 45px;}
-      .km40 {width: 66px; height: 66px;}
+      .ms5 {width: 25px; height: 25px;}
+      .ms15 {width: 50px; height: 50px;}
+      .ms25 {width: 60px; height: 60px;}
       
       .text{
         position: relative;
@@ -100,10 +104,12 @@
         top: 20px;
         left: 0;
         right: 0;
-        width: 50%;
-        min-width: 400px;
+        width: 70%;
+        min-width: 300px;
         height: auto;
         margin: auto;
+        text-align: center;
+        border-radius: 5px;
         background-color: #ffffff;
        }
       
@@ -151,16 +157,16 @@
                 container: 'map',
                 style: 'mapbox://styles/guillemherrera/cjdmb3def1gr92sp9g2j6qen1',
                 center: [2.16859, 41.3954],
-                zoom: 6,
+                zoom: 3.5,
                 minzoom: 3,
                 maxzoom: 10,
                 hash: false,
-                //pitch: 45
+                pitch: 60
                 });
              map.on('load', function () {
                   map.addSource("windLayer", {
                       type: "raster",
-                      tiles: ["https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=5e92732603fbd313828ea9351de0c78c"],
+                      tiles: ["https://tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=5e92732603fbd313828ea9351de0c78c"],
                   });  //fin map source
                   map.addLayer({
                       'id': 'wind',
@@ -168,9 +174,11 @@
                       'source': 'windLayer',
                       'minzoom': 0,
                       'maxzoom': 20,
-                      'paint': {'raster-opacity': 1}
+                      'paint': {'raster-opacity': 0.4}
                       })
                 });
+             var nav = new mapboxgl.NavigationControl();
+             map.addControl(nav, 'top-right');
             
               function stationscall() {
                 var bounds  = map.getBounds(); 
@@ -272,21 +280,15 @@
               window.setInterval(function() {
                               map.getSource('geojsonStations').setData(geojson);
                           }, 1000);
-              map.on('zoomend', function () {
+              map.on('moveend', function () {
                 stationscall();
                 window.setInterval(function() {
                   map.getSource('geojsonStations').setData(geojson);
               }, 1000);
               });
-
-              map.on('dragend', function () {
-                stationscall();
-                window.setInterval(function() {
-                  map.getSource('geojsonStations').setData(geojson);
-              }, 1000);
-              });
-                
+      
                 var popup2 = new mapboxgl.Popup()
+ /*               
                 map.on('mouseenter', 'stations', function (e) {
                   map.getCanvas().style.cursor = 'pointer';
                   popup2.setLngLat(e.features[0].geometry.coordinates)
@@ -300,7 +302,7 @@
                               popup2.remove();
                           }, 3000);
                 });
-              
+    */          
               map.on('click', function (a) {
                     var lng = a.lngLat.lng;
                     var lat = a.lngLat.lat;
@@ -354,16 +356,16 @@
         <div class="raster-wind-color"></div>
         <div class="raster-wind-value">
           <span class="w0">0 m/s</span>
+          <span class="w25">25 m/s</span>
           <span class="w50">50 m/s</span>
-          <span class="w100">100 m/s</span>
         </div>
         <p class="text">Provided by: Openweathermaps.org</p>
       </div>
       <div id="icons-wind">
         <div class="icons-wind-size">
-          <p class="icon-img"><img class="km10" src="img/drawing.svg" /><span>10 km/h</span></p>
-          <p class="icon-img"><img class="km25" src="img/drawing.svg" /><span>25 km/h</span></p>
-          <p class="icon-img"><img class="km40" src="img/drawing.svg" /><span>40 km/h</span></p>
+          <p class="icon-img"><img class="ms5" src="img/drawing.svg" /><span>5 m/s</span></p>
+          <p class="icon-img"><img class="ms15" src="img/drawing.svg" /><span>15 m/s</span></p>
+          <p class="icon-img"><img class="ms25" src="img/drawing.svg" /><span>25 m/s</span></p>
         </div>
         <p class="text">Provided by: geonames.org</p>
      </div>
