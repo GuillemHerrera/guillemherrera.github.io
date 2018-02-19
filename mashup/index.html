@@ -37,9 +37,6 @@
         right: 0;
         left: 0;
         width: 190px;
-        xxxmin-width: 290px;
-        xxxmax-width: 500px;
-        xxxheight: 90px;
         margin: auto;
         border-radius: 5px;
         background-color: #ffffff;
@@ -193,7 +190,6 @@
                     'west=' + bounds.getWest() + '&' +
                     'maxRows=1000&' + 
                     'username=guillemhm';
-                    //alert(stationscall);
 
                     $.ajax({
                     url: stationscall,
@@ -204,10 +200,9 @@
                         boundStationsArray = response.weatherObservations;
                         makeGeoJson(boundStationsArray);
                         console.info(geojson);
-                        //alert(stationscall);  
                     },
                     complete: displayGeoJsonPoints()
-                });//fin ajax
+                });
               }
               
               function  makeGeoJson (stationslist) {
@@ -225,14 +220,8 @@
                                   },
                         "properties": {
                           "id": stationslist[i].ICAO,
-                          //"clouds": stationslist[i].clouds,
-                          //"datetime": stationslist[i].datetime,
-                          //"station": stationslist[i].stationName,
-                          //"temperature": stationslist[i].temperature,
                           "windDirection": stationslist[i].windDirection,
                           "windSpeed": Number(stationslist[i].windSpeed),
-                          //"humidity": stationslist[i].humidity,
-                          //"pressure": stationslist[i].hectoPascAltimeter
                         }
                     });
                   }
@@ -245,7 +234,6 @@
                           map.addSource("geojsonStations", {
                               "type": "geojson",
                               "data": geojson
-                              
                           });
 
                           map.addLayer({
@@ -292,21 +280,7 @@
               });
       
                 var popup2 = new mapboxgl.Popup()
- /*               
-                map.on('mouseenter', 'stations', function (e) {
-                  map.getCanvas().style.cursor = 'pointer';
-                  popup2.setLngLat(e.features[0].geometry.coordinates)
-                              .setHTML(e.features[0].properties.windSpeed)
-                              .addTo(map);
-                });
-                
-                map.on('mouseleave', 'stations', function () {
-                    map.getCanvas().style.cursor = '';
-                    window.setInterval(function() {
-                              popup2.remove();
-                          }, 3000);
-                });
-    */          
+
               map.on('click', function (a) {
                     var lng = a.lngLat.lng;
                     var lat = a.lngLat.lat;
@@ -322,8 +296,7 @@
                       success: function (response) {
                                   makePopup(response);                     
                       },
-                    });//fin ajax
-
+                    });
               });
               function makePopup(minfo){
                 var popup = new mapboxgl.Popup()

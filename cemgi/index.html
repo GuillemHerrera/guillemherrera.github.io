@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Accidentes BCN</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%
+        }
+       
+    </style>
+
+    <script>
+        $(document).ready(function () {
+           
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZ3VpbGxlbWhlcnJlcmEiLCJhIjoiY2pjamdtMjMyMjU3OTJ3cGEzOHk0eGt3MCJ9.37rBv4h8G6B33tiBCDhsow';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/guillemherrera/cjd3b3t3d28px2rpogltw46rl',
+                center: [2.836654, 41.972072],
+                zoom: 17,
+                hash: true,
+                pitch: 45
+            });
+            map.addControl(new mapboxgl.NavigationControl());
+
+            map.on('load', function () {
+
+                map.addSource("ninxols-source", {
+                    type: "vector",
+                    url: "mapbox://guillemherrera.6y53kpyu"
+                });  //fin map source
+
+                map.addSource("construc-source", {
+                    type: "vector",
+                    url: "mapbox://guillemherrera.clkjw26k"
+                });  //fin map source
+
+                 map.addLayer({
+                    id: "construc",
+                    type: "fill",
+                    source: "construc-source",
+                    'source-layer': "construccions-2jllui",
+                    paint: {
+                          'fill-color': '#faffcf',
+                          'fill-opacity': 0.4,
+                          'fill-outline-color': '#000000'
+                        }
+                });
+
+                map.addLayer({
+                    id: "ninxols",
+                    type: "circle",
+                    source: "ninxols-source",
+                    'source-layer': "ninxolscemgi-4324pp",
+                    paint: {
+                          'circle-radius': 3,
+                          'circle-color': {
+                            property: "tipusconst",
+                            type: 'categorical',
+                            stops: [
+                            ['N', '#e26131'],
+                            ['A', '#d0d378'],
+                            ['C', '#78d3b0'],
+                            ['H', '#78bcd3'],
+                            ['P', '#9e78d3'],
+                            ['T', '#d378cd']
+                            ]
+                          },
+                          'circle-opacity': 0.8
+                        }
+                }); //fin add layers
+
+                map.on('click', 'ninxols', function (e) {
+                    new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML('<p>Identificador: '+e.features[0].properties.localitzad+'</p>'+
+                             '<p>Any Construcció: ' +e.features[0].properties.any_constr+'</p>'
+                                )
+                    .addTo(map);
+                 });
+                 map.on('mouseenter', 'ninxols', function () {
+                    map.getCanvas().style.cursor = 'pointer';
+                 });
+
+               
+                map.on('mouseleave', 'ninxols', function () {
+                    map.getCanvas().style.cursor = '';
+                });
+             
+
+            });//Fin load mapa
+
+        }); //fin ready Jquery
+    </script>
+</head>
+
+<body>
+ 
+     <div id='map'></div>
+
+</body>
+
+</html>
