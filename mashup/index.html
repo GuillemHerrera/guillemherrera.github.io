@@ -199,7 +199,7 @@
                         
                         boundStationsArray = response.weatherObservations;
                         makeGeoJson(boundStationsArray);
-                        console.info(geojson);
+                        //console.info(geojson);
                     },
                     complete: displayGeoJsonPoints()
                 });
@@ -286,9 +286,9 @@
                     var lat = a.lngLat.lat;
                     console.info(lat);
                     var preproxy = 'https://thingproxy.freeboard.io/fetch/'
-                    var positioncall = preproxy +'https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/66b4870d52e4f5c95469bdc50d6c422f/' +
+                    var positioncall = preproxy +'https://api.darksky.net/forecast/66b4870d52e4f5c95469bdc50d6c422f/' +
                     lat+','+lng+'?exclude=hourly,daily,flags&units=si'; 
-                    console.info(positioncall);
+                    //console.info(positioncall);
                     $.ajax({
                       url: positioncall,
                       method: "GET",
