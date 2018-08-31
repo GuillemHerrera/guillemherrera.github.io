@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display buildings in 3D</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; height:100%; }
+        .marker {
+          background-image: url('Reloj.png');
+          background-size: cover;
+          width: 50px;
+          height: 80px;
+          cursor: pointer;
+        }
+        .mapboxgl-popup {
+          max-width: 300px;
+        }
+
+        .mapboxgl-popup-content {
+          text-align: center;
+          font-family: 'Open Sans', sans-serif;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZ3VpbGxlbWhlcnJlcmEiLCJhIjoiY2pjamdtMjMyMjU3OTJ3cGEzOHk0eGt3MCJ9.37rBv4h8G6B33tiBCDhsow';
+var map = new mapboxgl.Map({
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [-3.7107, 40.4220],
+    zoom: 11,
+    pitch: 35,
+    //bearing: -17.6,
+    container: 'map',
+    hash: true
+});
+
+//var marker = new mapboxgl.Marker()
+  //      .setLngLat([-3.72585, 40.4426])
+    //    .addTo(map);
+
+
+
+// The 'building' layer in the mapbox-streets vector source contains building-height
+// data from OpenStreetMap.
+map.on('load', function() {
+    var link = "https://www.google.com/maps/dir/''/Facultad+de+Enfermer%C3%ADa,+Fisioterapia+y+Podolog%C3%ADa+de+la+Universidad+Complutense+de+Madrid/@40.4429889,-3.7947299,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xd422837a89cec17:0x5ed6d281f92ee319!2m2!1d-3.72469!2d40.44301"
+    var el = document.createElement('div');
+    el.className = 'marker';
+    new mapboxgl.Marker(el)
+    .setLngLat([-3.72585, 40.4426])
+    .setPopup(new mapboxgl.Popup({ offset: 35 })
+    .setHTML('<h1>VI Congreso Estatal de Psicomotricidad</h1>'+
+              '<p>Facultad de Enfermería, Fisioterapia y Podología de la Universidad Complutense de Madrid</p>'+
+              '<p><a href='+link+' target="_blanck">Como Llegar</strong></a></p>'))
+    .addTo(map);
+
+    // Insert the layer beneath any symbol layer.
+    var layers = map.getStyle().layers;
+
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addLayer({
+        'id': '3d-buildings',
+        'source': 'composite',
+        'source-layer': 'building',
+        'filter': ['==', 'extrude', 'true'],
+        'type': 'fill-extrusion',
+        'minzoom': 15,
+        'paint': {
+            'fill-extrusion-color': '#aaa',
+
+            // use an 'interpolate' expression to add a smooth transition effect to the
+            // buildings as the user zooms in
+            'fill-extrusion-height': [
+                "interpolate", ["linear"], ["zoom"],
+                15, 0,
+                15.05, ["get", "height"]
+            ],
+            'fill-extrusion-base': [
+                "interpolate", ["linear"], ["zoom"],
+                15, 0,
+                15.05, ["get", "min_height"]
+            ],
+            'fill-extrusion-opacity': .6
+        }
+    }, labelLayerId);
+
+    // map.addSource('point', {
+    //     "type": "geojson",
+    //     "data": {
+    //         "type": "Feature",
+    //             "geometry": {
+    //                 "type": "Point",
+    //                 "coordinates": [-3.72585, 40.4426]
+    //              },
+    //             "properties": {
+    //                 "name": "Dinagat Islands"
+    //              }
+    //         }
+    // });
+
+    // map.addLayer({
+    //     "id": "congres",
+    //     "source": "point",
+    //     "type": "circle",
+    //     "paint": {
+    //         "circle-radius": 8,
+    //         "circle-color": "#007cbf"
+    //     }
+    // }, labelLayerId);
+
+    map.addSource("metro-stops", {
+                    type: "geojson",
+                    data: "https://opendata.arcgis.com/datasets/f3859438e5504a6b9ca745880f72ef1b_0.geojson"
+                });  //fin map source
+    map.addLayer({
+        id: "paradas-metro",
+        type: "circle",
+        source: "metro-stops",
+        minzoom: 11,
+        paint: {
+              'circle-color': 'red',
+              'circle-opacity': 0.5,
+              'circle-radius':4
+              
+            }
+    });
+
+    map.addSource("metro-lines", {
+                    type: "vector",
+                    url: "mapbox://guillemherrera.2z5bmnol"
+                });  //fin map source
+                 map.addLayer({
+                    id: "lineas-metro",
+                    type: "line",
+                    source: "metro-lines",
+                    'source-layer': "m4_84_3-dlxht6",
+                    minzoom: 11,
+                    paint: {
+                            'line-color': {
+                            property: 'Linea',
+                            type: 'categorical',
+                            stops: [
+                            [1, '#e26131'],
+                            [2, '#d0d378'],
+                            [3, '#78d3b0'],
+                            [4, '#78bcd3'],
+                            [5, '#9e78d3'],
+                            [6, '#9e78d3'],
+                            [7, '#9e78d3'],
+                            [8, '#9e78d3'],
+                            [9, '#9e78d3'],
+                            [10, '#9e78d3'],
+                            [11, '#9e78d3'],
+                            [12, '#9e78d3']
+                            ]
+                            },
+                            'line-width':1,
+                            'line-opacity':0.5
+                        }
+                });
+
+     map.on('click', 'paradas-metro', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = '<p> Estacion: '+e.features[0].properties.DENOMINACION+'</p>';
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'paradas-metro', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'paradas-metro', function () {
+        map.getCanvas().style.cursor = '';
+    });    
+});
+
+
+window.setTimeout(function() {
+        var v1 = new mapboxgl.LngLat(-3.7258, 40.4426);
+        map.flyTo({
+        // These options control the ending camera position: centered at
+        // the target, at zoom level 9, and north up.
+        zoom: 17,
+        center: v1,
+        
+        
+           
+
+        // These options control the flight curve, making it move
+        // slowly and zoom out almost completely before starting
+        // to pan.
+        speed: 0.3, // make the flying slow
+        curve: 1, // change the speed at which it zooms out
+
+        // This can be any easing function: it takes a number between
+        // 0 and 1 and returns another number between 0 and 1.
+        easing: function (t) {
+            return t;
+        }
+    });}, 5000);
+</script>
+
+</body>
+</html>
