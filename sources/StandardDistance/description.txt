@@ -1,13 +1,13 @@
 <h1>
-    Geographic Statitiscs
+    Standard Distance Analysis
 </h1>
 <p>
-Analyzing data of Spanish register of edifications and the Urbanistic Planning, we can visualize how differs the construccions real height  over plannificated ones. 
+Standard Distance measures the degree to which features are concentrated or dispersed around the features. Bigger circles shows disgregated population in a counties against smaller circels (with smaller Standard Distance values).
 </p>
 <p>
-   Grey area for regulated construccions, Green area for height that is still allow to build, Red for construccions outside regulation.
+Also we can observe tematic visualitzation off population. Barcelona's areas have the biggest population value, with smaller Standard distance values (high density)
 </p>
 <p class="howto">
-    Software: QGIS 3.0 Girona, Qgis2threeJS
+    Software: QGIS 3.0 Girona, StandardDistance Plugin
 </p>
   
