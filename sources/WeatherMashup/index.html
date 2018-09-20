@@ -1,0 +1,354 @@
+
+<html lang="es">
+   <head>
+     <title>Mashup</title>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="author" content="autor" />
+     <meta name="description" content="descripción página">
+     <meta name="robots" content="index,follow">
+     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script type="text/javascript" src="js/skycons.js"></script>
+
+     <style>
+
+      ul,ol{list-style:none}
+      h1,h2,h3,h4,h5,h6,pre,code{font-size:1em;}
+      ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset{ margin:0;padding:0;line-height:1; list-style:none;}
+      a img,:link img,:visited img, fieldset{border:none;}
+      input[type=submit], input[type=reset], input[type=button] { *filter:chroma(color=#000000); }
+
+       body {
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         font-size: 10px;
+       }
+       #map {
+         height: 100%;
+         width: 100%;
+       }
+       #legend{
+        position: fixed;
+        bottom: 10px;
+        right: 0;
+        left: 0;
+        width: 190px;
+        margin: auto;
+        border-radius: 5px;
+        background-color: #ffffff;
+       }
+
+       #raster-wind, #icons-wind{ 
+        width: 94%;
+        height: auto;
+        display: inherit;
+        padding: 5px;
+        position: relative;
+        top: 5px;
+      }
+
+      .raster-wind-color{
+        width: 100%;
+        height: 15px;
+        background-image: url("img/gradient.png");
+        background:  linear-gradient(to right, rgba(0,0,255,0.6), rgba(0,255,255, 0.6),rgba(255,255,0.6), rgba(255,0,0,0.6));
+      }
+      .raster-wind-value{
+        position: relative;
+        width: 100%;
+        height: 15px;
+      }
+
+      .w0 {
+        position: absolute;
+        left: 0;
+      }
+
+      .w25{
+        display: block;
+        width: 45px;
+        margin: auto;
+      }
+
+      .w50 {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .icons-wind-size{
+        text-align: center;
+      }
+      .icon-img{
+        display: inline-block;
+        width: 30%;
+        height: auto;
+      }
+
+      .icon-img span {position: relative;display: block;}
+
+      .ms5 {width: 25px; height: 25px;}
+      .ms15 {width: 50px; height: 50px;}
+      .ms25 {width: 60px; height: 60px;}
+      
+      .text{
+        position: relative;
+        bottom: -3px;
+        padding-bottom: 6px;
+      }
+
+      #click {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        width: 70%;
+        min-width: 300px;
+        height: auto;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #ffffff;
+       }
+      
+      #click p {
+        padding: 5px;
+      }
+      .click-text {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      p.icon-toggle {
+      position: absolute;
+      right: 20px;
+      bottom: 44px;
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+      }
+
+      p.icon-toggle span{
+        position: relative;
+        height: 2px;
+        width: 32px;
+        margin: 0 auto;
+        background: #ffffff;
+        display: block;
+        top: 50%;
+        margin-top: -1px;
+        box-shadow: 0 10px 0px 0px #ffffff, 0 -10px 0px 0px #ffffff;
+      }
+       div.mapboxgl-popup-content {text-align: center;}
+      
+     </style>
+
+     <script type="text/javascript">
+      var map;
+      var boundStationsArray = [];
+      var geojson = {
+                  type: "FeatureCollection",
+                  features: [],
+                  };
+       $(document).ready(function () {
+       mapboxgl.accessToken = 'pk.eyJ1IjoiZ3VpbGxlbWhlcnJlcmEiLCJhIjoiY2pjamdtMjMyMjU3OTJ3cGEzOHk0eGt3MCJ9.37rBv4h8G6B33tiBCDhsow';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/guillemherrera/cjdmb3def1gr92sp9g2j6qen1',
+                center: [2.16859, 41.3954],
+                zoom: 3.5,
+                minzoom: 3,
+                maxzoom: 10,
+                hash: false,
+                pitch: 60
+                });
+             map.on('load', function () {
+                  map.addSource("windLayer", {
+                      type: "raster",
+                      tiles: ["https://tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid=5e92732603fbd313828ea9351de0c78c"],
+                  });  //fin map source
+                  map.addLayer({
+                      'id': 'wind',
+                      'type': 'raster',
+                      'source': 'windLayer',
+                      'minzoom': 0,
+                      'maxzoom': 20,
+                      'paint': {'raster-opacity': 0.4}
+                      })
+                });
+             var nav = new mapboxgl.NavigationControl();
+             map.addControl(nav, 'top-right');
+            
+              function stationscall() {
+                var bounds  = map.getBounds(); 
+                var stationscall = 'https://secure.geonames.org/weatherJSON?' +
+                    'north=' + bounds.getNorth() + '&' +
+                    'south=' + bounds.getSouth() + '&' +
+                    'east=' + bounds.getEast() + '&' +
+                    'west=' + bounds.getWest() + '&' +
+                    'maxRows=1000&' + 
+                    'username=guillemhm';
+
+                    $.ajax({
+                    url: stationscall,
+                    method: "GET",
+                    dataType: "json",
+                    success: function (response) {
+                        
+                        boundStationsArray = response.weatherObservations;
+                        makeGeoJson(boundStationsArray);
+                        //console.info(geojson);
+                    },
+                    complete: displayGeoJsonPoints()
+                });
+              }
+              
+              function  makeGeoJson (stationslist) {
+
+                  geojson = {
+                  type: "FeatureCollection",
+                  features: [],
+                  };
+                  for (i = 0; i < stationslist.length; i++) {
+                    geojson.features.push({
+                      "type": "Feature",
+                      "geometry": {
+                          "type": "Point",
+                          "coordinates": [stationslist[i].lng, stationslist[i].lat]
+                                  },
+                        "properties": {
+                          "id": stationslist[i].ICAO,
+                          "windDirection": stationslist[i].windDirection,
+                          "windSpeed": Number(stationslist[i].windSpeed),
+                        }
+                    });
+                  }
+              }
+
+              function displayGeoJsonPoints () {
+                        
+                        map.on('load', function () {
+
+                          map.addSource("geojsonStations", {
+                              "type": "geojson",
+                              "data": geojson
+                          });
+
+                          map.addLayer({
+                              id: "stations",
+                              interactive: "true",
+                              type: "symbol",
+                              source: 'geojsonStations',
+                              "layout": {
+                                  "icon-image": "drawing",
+                                  "icon-allow-overlap": {
+                                          stops : [[0,false], [4, true]]
+                                         },
+                                  "icon-size": {
+                                        property: 'windSpeed',
+                                        type: 'exponential',
+                                        stops: [
+                                          [0, 0],
+                                          [10, 1],
+                                          [30, 2],
+                                          [60, 3]
+                                        ],
+                                        default: 0.5
+                                        },
+                                  "icon-rotate":{
+                                        type: 'identity',
+                                        property: 'windDirection'
+                                        },
+                                  "icon-padding": 1
+
+                                       }
+                          });
+                        });
+              }
+
+              stationscall();
+              window.setInterval(function() {
+                              map.getSource('geojsonStations').setData(geojson);
+                          }, 1000);
+              map.on('moveend', function () {
+                stationscall();
+                window.setInterval(function() {
+                  map.getSource('geojsonStations').setData(geojson);
+              }, 1000);
+              });
+      
+                var popup2 = new mapboxgl.Popup()
+
+              map.on('click', function (a) {
+                    var lng = a.lngLat.lng;
+                    var lat = a.lngLat.lat;
+                    console.info(lat);
+                    var preproxy = 'https://thingproxy.freeboard.io/fetch/'
+                    var positioncall = preproxy +'https://api.darksky.net/forecast/66b4870d52e4f5c95469bdc50d6c422f/' +
+                    lat+','+lng+'?exclude=hourly,daily,flags&units=si'; 
+                    //console.info(positioncall);
+                    $.ajax({
+                      url: positioncall,
+                      method: "GET",
+                      dataType: "json",
+                      success: function (response) {
+                                  makePopup(response);                     
+                      },
+                    });
+              });
+              function makePopup(minfo){
+                var popup = new mapboxgl.Popup()
+                  .setLngLat([minfo.longitude, minfo.latitude])
+                  .setHTML ('<p>'+minfo.currently.summary +'</p><canvas id="'+minfo.currently.icon+'" width="64" height="64">'+
+                  '</canvas><p> Wind: '+minfo.currently.windSpeed+'m/s</p>')
+                  .addTo(map);
+                  var skycons = new Skycons({"color": "black"});
+                  skycons.add(minfo.currently.icon, minfo.currently.icon);
+                  skycons.play();
+              }
+              });
+
+              $(document).ready(function(){
+                $( ".icon-toggle" ).click(function() {
+                $( "#legend" ).toggle('slow');
+              });
+
+                $( "#map" ).click(function() {
+                $( "#click" ).hide('slow');
+
+              });
+              });
+     </script>
+   </head>
+   <body>
+     <div id="map"></div>
+     <div id="click">
+       <p class="click-text"> Click anywhere on the map to show the current weather </p>
+       <p> Provided by: Darsky.net </p>
+     </div>
+     <div id="legend">
+      <div id="raster-wind">
+        <p>Wind speed</p>
+        <div class="raster-wind-color"></div>
+        <div class="raster-wind-value">
+          <span class="w0">0 m/s</span>
+          <span class="w25">25 m/s</span>
+          <span class="w50">50 m/s</span>
+        </div>
+        <p class="text">Provided by: Openweathermaps.org</p>
+      </div>
+      <div id="icons-wind">
+        <div class="icons-wind-size">
+          <p class="icon-img"><img class="ms5" src="img/drawing.svg" /><span>5 m/s</span></p>
+          <p class="icon-img"><img class="ms15" src="img/drawing.svg" /><span>15 m/s</span></p>
+          <p class="icon-img"><img class="ms25" src="img/drawing.svg" /><span>25 m/s</span></p>
+        </div>
+        <p class="text">Provided by: geonames.org</p>
+     </div>
+   </div>
+     <p class="icon-toggle"><span></span></p>
+    
+    </body>
+   </html>
