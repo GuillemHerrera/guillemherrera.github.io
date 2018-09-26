@@ -8,6 +8,5 @@ Standard Distance measures the degree to which features are concentrated or disp
 Also we can observe tematic visualitzation off population. Barcelona's areas have the biggest population value, with smaller Standard distance values (high density)
 </p>
 <p class="howto">
-    Software: QGIS 3.0 Girona, StandardDistance Plugin
-</p>
+    Software: QGIS 3.0 Girona, <a href="https://github.com/GuillemHerrera/StandardDistance">StandardDistance Plugin </a>
   
