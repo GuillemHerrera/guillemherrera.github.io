@@ -1,0 +1,132 @@
+<style>
+
+ul,ol{list-style:none}
+h1,h2,h3,h4,h5,h6,pre,code{font-size:1em;}
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset{ margin:0;padding:0;line-height:1; list-style:none;}
+a img,:link img,:visited img, fieldset{border:none;}
+input[type=submit], input[type=reset], input[type=button] { *filter:chroma(color=#000000); }
+
+ body {
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   font-size: 10px;
+ }
+ #map {
+   height: 100%;
+   width: 100%;
+ }
+ #legend{
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  width: 190px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #ffffff;
+ }
+
+ #raster-wind, #icons-wind{ 
+  width: 94%;
+  height: auto;
+  display: inherit;
+  padding: 5px;
+  position: relative;
+  top: 5px;
+}
+
+.raster-wind-color{
+  width: 100%;
+  height: 15px;
+  background-image: url("img/gradient.png");
+  background:  linear-gradient(to right, rgba(0,0,255,0.6), rgba(0,255,255, 0.6),rgba(255,255,0.6), rgba(255,0,0,0.6));
+}
+.raster-wind-value{
+  position: relative;
+  width: 100%;
+  height: 15px;
+}
+
+.w0 {
+  position: absolute;
+  left: 0;
+}
+
+.w25{
+  display: block;
+  width: 45px;
+  margin: auto;
+}
+
+.w50 {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.icons-wind-size{
+  text-align: center;
+}
+.icon-img{
+  display: inline-block;
+  width: 30%;
+  height: auto;
+}
+
+.icon-img span {position: relative;display: block;}
+
+.ms5 {width: 25px; height: 25px;}
+.ms15 {width: 50px; height: 50px;}
+.ms25 {width: 60px; height: 60px;}
+
+.text{
+  position: relative;
+  bottom: -3px;
+  padding-bottom: 6px;
+}
+
+#click {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  width: 70%;
+  min-width: 300px;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #ffffff;
+ }
+
+#click p {
+  padding: 5px;
+}
+.click-text {
+  font-size: 15px;
+  font-weight: bold;
+}
+p.icon-toggle {
+position: absolute;
+right: 20px;
+bottom: 44px;
+height: 40px;
+width: 40px;
+cursor: pointer;
+}
+
+p.icon-toggle span{
+  position: relative;
+  height: 2px;
+  width: 32px;
+  margin: 0 auto;
+  background: #ffffff;
+  display: block;
+  top: 50%;
+  margin-top: -1px;
+  box-shadow: 0 10px 0px 0px #ffffff, 0 -10px 0px 0px #ffffff;
+}
+
+div.mapboxgl-popup-content {text-align: center;}
+
+</style>

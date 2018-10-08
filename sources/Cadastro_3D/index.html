@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display buildings in 3D</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; height:100%; }
+        
+        #buttons{
+            position: fixed;
+            right:5%;
+            top:5%;
+            background-color: transparent;
+        }
+        #start-stop, #info{
+            width:50px;
+            height: 50px;
+            background-color: #3E5AD1;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        #info p {
+
+          position: relative;
+          top: 6px;
+          left: 20px;
+          font-size: 30px;
+
+        }
+
+        .play {
+          width: 0;
+          position: relative;
+          left: 25%;
+          top: 18%;
+          height: 22px;
+          background-color: transparent;
+          border:0;
+          border-style: solid;
+          border-width: 14px 0px 14px 28px;
+          border-color: transparent transparent transparent #000;
+          box-sizing: border-box;
+          transition: 100ms all ease;
+          cursor: pointer;
+
+        }
+        .paused {
+            border-style: double;
+            border-width: 0px 0 0px 23px;
+            top: 17%;
+          }
+        .play:hover, .paused:hover {
+        border-color: transparent transparent transparent #bbb;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1001; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: left;
+            color: #ccc;
+            padding: 10px 0;
+            height: auto;
+        }
+
+        #caption p {
+            line-height: 21px;
+            padding-bottom: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<div id="buttons">
+<div id='start-stop'>
+    <button href="#" title="Play animation" class="play paused"></button>
+</div>
+<div id="info">
+    <p>i</p>
+</div>
+</div>
+<div id="myModal" class="modal">
+        <span class="close">×</span>
+        <div id="caption"></div>
+
+</div> 
+<script>
+
+var lonC=2.0805913;
+var latC=41.4700017;
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiZ3VpbGxlbWhlcnJlcmEiLCJhIjoiY2pjamdtMjMyMjU3OTJ3cGEzOHk0eGt3MCJ9.37rBv4h8G6B33tiBCDhsow';
+var map = new mapboxgl.Map({
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [lonC, latC],
+    zoom: 17,
+    pitch: 60,
+    //bearing: 180,
+    container: 'map',
+    hash: true
+});
+
+map.on('load', function() {
+
+    map.addSource("edificis", {
+                    type: "geojson",
+                    data: "SC_Edificis.geojson"
+                });
+
+     map.addLayer({
+        id: "edificis-ok",
+        type: "fill-extrusion",
+        source: "edificis",
+        filter: ['==',['get','PotPisos'],0],
+        paint: {
+              'fill-extrusion-color': '#c9c9c9',
+              'fill-extrusion-height': ['*',['get','b_VolEdi'],3],
+              'fill-extrusion-opacity': 1
+            }
+    });
+     map.addLayer({
+        id: "edificis-over",
+        type: "fill-extrusion",
+        source: "edificis",
+        filter: ['all',['>',['get','PotPisos'],0],['!=',['get','PotPisos'],9999]],
+        paint: {
+              'fill-extrusion-color': '#f85f2b',
+              'fill-extrusion-height': ['*',['get','a_Alt_SR'],3],
+              'fill-extrusion-opacity': 1
+            }
+    });
+     map.addLayer({
+        id: "edificis-over-ok",
+        type: "fill-extrusion",
+        source: "edificis",
+        filter: ['all',['>',['get','PotPisos'],0],['!=',['get','PotPisos'],9999]],
+        paint: {
+              'fill-extrusion-color': '#c9c9c9',
+              'fill-extrusion-base':0,
+              'fill-extrusion-height': ['*',['get','b_VolEdi'],3],
+              'fill-extrusion-opacity': 1
+            }
+    });
+     map.addLayer({
+        id: "edificis-under",
+        type: "fill-extrusion",
+        source: "edificis",
+        filter: ['<',['get','PotPisos'],0],
+        paint: {
+              'fill-extrusion-color': '#41d63f',
+              'fill-extrusion-height': ['-',['*',['get','b_VolEdi'],3],0],
+              'fill-extrusion-opacity': 1
+            }
+     });
+    map.addLayer({
+        id: "edificis-out-r",
+        type: "fill-extrusion",
+        source: "edificis",
+        filter: ['==',['get','PotPisos'],9999],
+        paint: {
+              'fill-extrusion-color': '#fff36c',
+              'fill-extrusion-height': ['*',['get','a_Alt_SR'],3],
+              'fill-extrusion-opacity': 1
+                            
+            }
+    });
+     map.addLayer({
+        id: "edificis-out-r2",
+        type: "fill-extrusion",
+        source: "edificis",
+        filter: ['all',['!=',['typeof',['get', 'b_VolEdi']],'number'], ['!=',['typeof',['get', 'a_Alt_SR']],'number']],
+        paint: {
+              'fill-extrusion-color': '#c9c9c9',
+              'fill-extrusion-height': ['*',['get','a_Alt_SR'],3],
+              'fill-extrusion-opacity': 1
+                            
+            }
+    });
+    
+
+
+    
+    var radius = 0.0005;
+    var t=5000;
+    var animation = true;
+    var r_id;
+    
+    rotateAround(performance.now());
+    
+    function rotateAround(timestamp) {
+        if (animation==true){
+           
+            map.setCenter(mapCenter(timestamp/t));
+            map.setBearing(mapBearing(timestamp/t));
+            r_id=window.requestAnimationFrame(rotateAround);
+        }
+        else if (animation==false){
+            r_id=window.requestAnimationFrame(rotateAround);
+            animation=true;
+        }
+
+    }
+
+    function mapCenter(angle) {
+        return [lonC-Math.sin(angle) * radius,latC-Math.cos(angle) * radius];
+        }
+
+    function mapBearing(angle) {
+        var deg=((angle*180)/Math.PI);
+        return deg;
+        }
+   
+      var btn = $(".play");
+      btn.click(function() {
+        btn.toggleClass("paused");
+        if (animation==true){
+               
+                window.cancelAnimationFrame(r_id);
+                animation=false;
+            }
+            else if(animation==false){
+                
+                rotateAround(performance.now());
+                animation=true;
+            }
+        return false;
+      });
+
+
+    makeModal();
+    function makeModal(){
+        var modal = document.getElementById('myModal');
+        var captionText = document.getElementById("caption");
+        setText(captionText);
+        $( '#info, .close' ).click(function() {
+            $( "#myModal" ).toggle('slow');
+          });
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) { // escape key maps to keycode `27`
+            $( "#myModal" ).toggle('slow');
+            }
+        });
+    }
+
+    function setText(divText) {
+        urlText='https://raw.githubusercontent.com/GuillemHerrera/guillemherrera.github.io/master/sources/Cadastro_3D/description.txt';
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", urlText, async=true);
+        rawFile.onreadystatechange = function ()
+        {
+            if(rawFile.readyState === 4)
+            {
+                if(rawFile.status === 200 || rawFile.status == 0)
+                {
+                    divText.innerHTML = rawFile.responseText;
+                }
+            }
+        };
+        rawFile.send(null); 
+    }
+});
+
+
+</script>
+
+</body>
+</html>
