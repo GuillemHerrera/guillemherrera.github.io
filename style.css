@@ -514,6 +514,7 @@ p.icon-toggle span{
     left: 50%;
     transform: translate(-50%, -1%);
     color: black;
+    background-color: #fff;
     background-color: #fff9;
     font-size: 15px;
     border-radius: 16px;
@@ -621,9 +622,11 @@ p.icon-toggle span{
 	background-color: #000298;
 }
 .medium{
+	background-color: #575cc6;
 	background-color: #000aceb3;
 }
 .basic{
+	background-color: #9a93cc;
 	background-color: #1500a766;
 }
 
