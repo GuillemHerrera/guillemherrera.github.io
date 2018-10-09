@@ -219,7 +219,7 @@ $(document).ready(function(){
 		if ($(window).width() > 540){
 			$(".menu-content").css({top:$('header').outerHeight()/3});}
 		else if ($(window).width() < 540){
-			$(".menu-content").css({top:'20px'});}
+			$(".menu-content").css({top:'6px'});}
 		//$("menu_items").each().css({bottom: '10px'});
 
 		$(window).resize(function() {
@@ -229,7 +229,7 @@ $(document).ready(function(){
 		if ($(this).width() > 540){
 			$(".menu-content").css({top:$('header').outerHeight()/3});}
 		else if ($(this).width() < 540){
-			$(".menu-content").css({top:'20px'});}	
+			$(".menu-content").css({top:'6px'});}	
 
  		});
  
