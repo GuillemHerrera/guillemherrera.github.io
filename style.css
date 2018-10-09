@@ -94,8 +94,8 @@ header {
 .head p { 
 
 	color: #3E3585;
-	margin-bottom: 15px;
-	margin-top: 15px;
+	margin-bottom: 0;
+	margin-top: 6px;
  }
 
 .head h1, .head p{
@@ -132,14 +132,7 @@ header {
 	
 	margin: 0 5px 0 5px;
 }
-/*li.menu-items {
-    display: inline-block;
-    height: auto; 
-    margin: 6px 2px;
-    padding: 5px 10px;
-    background: linear-gradient(#849dae33, #e1eaf099);
-}
-*/
+
 li.menu-items a {
     padding: 6px 10px; 
     text-decoration: none;
@@ -167,14 +160,9 @@ li.current {
     border-radius: 6px;
     box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
 
-  xxtransition: display 2s ease;
-  xx-webkit-transition: display 2s ease;
-  xx-moz-transition: display 2s ease;
-  xx-o-transition: display 2s ease;
 }
 
 p.icon-toggle {
-    xxxxdisplay: block;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -194,219 +182,7 @@ p.icon-toggle span{
 	margin-top: -1px;
 	box-shadow: 0 10px 0px 0px #000, 0 -10px 0px 0px #000;
 }
-/*
-#logos {
-	position: relative;
-	width: 100%;
-	height: 100px;
-	xxxbackground: #95CC3A;
-	xxxbackground: linear-gradient(to bottom right, #68A9AC, #95CC3A);
-}
 
-#logo1 {
-	position: absolute;
-	width: auto;
-	left: 2%;
-	bottom: 20px;
-}
-#logo1 img {
-	max-height: 58px;
-}
-#logo2 {
-	width: 270px;
-	max-height: 100px;
-	margin: auto;
-}
-#logo2 .reloj {
-	width: auto;
-	height: 100px;
-	margin-right: 10px;
-}
-
-#logo2 .titol {
-	width: auto;
-	height: 94px;
-}
-#logo3 {
-	position: absolute;
-	width: auto;
-	right: 2%;
-	bottom: 16px;
-}
-#logo3 img {
-	max-height: 66px;
-}
-
-#logos-mbl {
-	position: relative;
-	width: 100%;
-	height: 100px;
-}
-#logo1-mbl {
-	display: inline-block;
-	width: 19%;
-	text-align: center;
-}
-
-#logo2-mbl {
-	display: inline-block;
-	width: 62%;
-	text-align: center;
-}
-
-#logo1-mbl .reloj {
-	width: auto;
-	height: 100px;
-	margin-left: 8%;
-}
-
-#logo2-mbl .titol {
-	width: auto;
-	height: 94px;
-}
-*/
-/*---------------- menu----------------*/
-
-/*#menu{
-	width: 100%;
-	height: auto;
-	background-color: transparent;
-	
-}
-
-#menu-content{
-	height: auto;
-	width: 90%;
-	margin: auto;
-	text-align: center;
-	font-size: 0;
-}
-
-.menu-items {
-	display: inline-block;
-	position: relative;
-	height: 30px;
-	top: -2px;
-	padding: 8px 4px 0 4px;
-	margin-right: 4px;
-	margin-bottom: -2px;
-	background: linear-gradient(#ffffff1a, #ffffffb3);
-}
-
- li.menu-items a {
-	font-size: 15px;
-	font-weight: bold;
-	color: #3E3585;
-	xxvertical-align: middle;
- }
-
-
-li.menu-items:hover {
-	background: linear-gradient(#ffffff, #ffffffb3);
-}
-li.menu-items:hover a {
-	xxxcolor: #000000;
-
-}
-
-.dropdown {
-	cursor: pointer;
-}
-
-ul.dropdown-menu{
-	position: absolute;
-	top: 100%;
-	left: 0;
-	z-index: 1000;
-	display: none;
-	padding: 5px 0;
-	margin: 2px 0 0;
-    margin-top: 2px;
-	list-style: none;
-	text-align: left;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-}
-
-.dropdown-menu > li{
-	padding: 8px 20px 8px 6px;
-	width: 100%;
-	margin-right: 2px;
-}
-
-.dropdown-menu > li:hover{
-	background: #02000c33 !important;
-	xxxcolor: #fff !important;
-
-}
-li.current {
-	background: linear-gradient(#ffffff, #ffffffb3);
-}
-
-li.current a {
-	xxxcolor:#000000;
-}
-
-#menu ul li:before {
-	content: "";
-}
-
-#menu-toggle{
-	display: none;
-	width: 100%;
-	height: auto;
-	background-color: transparent;
-	
-}
-
-#menu-content-toggle{
-	xxxdisplay: none;
-	height: auto;
-	width: 90%;
-	margin: auto;
-	text-align: center;
-	font-size: 0;
-}
-
-p.icon-toggle {
-    xxxxdisplay: block;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
-}
-
-p.icon-toggle span{
-	position: relative;
-	height: 2px;
-	width: 32px;
-	margin: 0 auto;
-	background: #ffffff;
-	display: block;
-	top: 50%;
-	margin-top: -1px;
-	box-shadow: 0 10px 0px 0px #ffffff, 0 -10px 0px 0px #ffffff;
-}
-
- #menu-content-toggle .menu-items {
-	display: inline-block;
-	position: relative;
-	height: 30px;
-	width: 100%;
-	top: -2px;
-	padding: 8px 4px 0 4px;
-	margin-right: 4px;
-	margin-bottom: -2px;
-	color: #3E3585;
-	background: linear-gradient(#ffffff1a, #ffffffb3);
-}*/
 .mostra {
 	display: inherit;
 }
@@ -427,7 +203,6 @@ p.icon-toggle span{
 	height: auto;
 	margin: 0 auto;
 	padding-bottom: 20px;
-	xxbackground-color: blue;
 	text-align: left;
 }
 
@@ -446,19 +221,12 @@ p.icon-toggle span{
 }
 
 .content-text p {
-	xxxmargin: 0 0 0 0;
 	padding: 20px 20px 0 0;
 }
 
 .content-text p:last-child{
 	padding-bottom: 20px;
 }
-
-.content-text div.last{
-	xxxpadding-bottom: 20px;
-}
-
-
 
 
 /*---------------SLIDER--------------*/

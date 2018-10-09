@@ -139,7 +139,15 @@ $(document).ready(function(){
           variableHeight: true,
           dots: false,
           centerMode: true,
-          focusOnSelect: true
+          focusOnSelect: true,
+          responsive: [
+          	{breakpoint:540,
+          	 settings:{
+          	 	slidesToShow: 1,
+          	 	infinite:true
+          	 	}
+          	 }
+          ]
         });
 
       $('#slider-mapp').slick({
@@ -195,7 +203,7 @@ $(document).ready(function(){ //show toogle button
 	  var id = $(this).attr('href');
 	  
 	  $('html, body').animate({
-	    scrollTop: $(id).offset().top - nav_height
+	    scrollTop: $(id).offset().top - nav_height - 50
 	  }, 500);
 	});
 	});
