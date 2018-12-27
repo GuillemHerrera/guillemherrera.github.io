@@ -6,7 +6,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
     
-    <script type="text/javascript" src="path.js"></script>
+    <script type="text/javascript" src="path_2.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 
     <style>
@@ -463,6 +463,14 @@ var geojson = {
             "coordinates": [
                 
             ]
+        }},
+        {
+        "type": "Feature",
+        "geometry": {
+            "type": "LineString",
+            "coordinates": [
+                
+            ]
         }
     }]
 };
@@ -471,6 +479,7 @@ var i_y=path[0][1];
 
 
 geojson.features[0].geometry.coordinates.push([i_x, i_y]);
+geojson.features[1].geometry.coordinates.push([i_x, i_y]);
 
 console.log([path[0][0], path[0][1]]);
 console.log(geojson);
@@ -483,7 +492,7 @@ var map = new mapboxgl.Map({
     zoom: 17
 });
 
-var speedFactor = 2000; // number of frames per longitude degree
+var speedFactor = 60; // number of frames per longitude degree
 var animation; // to store and cancel the animation
 var startTime = 0;
 var progress = 0; // progress = timestamp - startTime
@@ -512,6 +521,25 @@ map.on('load', function() {
             'line-opacity': .8
         },
         "filter": ["==", "$type", "LineString"]
+    });
+
+    map.addLayer({
+        'id': 'line-stops',
+        'type': 'circle',
+        'source': {
+            'type': 'geojson',
+            'data': geojson
+        },
+        //'layout': {
+        //    'line-cap': 'round',
+        //   'line-join': 'round'
+        //},
+        'paint': {
+            'circle-color': '#ff0000',
+            'circle-radius': 5,
+            'circle-opacity': .8
+        },
+        "filter": ["==", "$type", "Point"]
     });
 
     startTime = performance.now();
@@ -551,7 +579,7 @@ map.on('load', function() {
     var x;
     var y;
     var x_y;
-    var speed_fac = 200;
+    var speed_fac = 40;
     console.log(length, el_time, vel );
 
                 
@@ -577,21 +605,16 @@ map.on('load', function() {
             if ((i+1) < path_length){
 
                 // reacreating previous feature -simplifiing
-                geojson.features[i-1].geometry.coordinates = line;
-                //appending feature
+                geojson.features[0].geometry.coordinates.push([line[1][0], line[1][1]]);
 
-                feature = {};
-                feature['type'] = 'Feature';
-                feature['geometry'] = {'type': 'LineString',
-                                       'coordinates': [[path[i][0],path[i][1]]]
-                                       };
-                geojson['features'].push(feature);
                 
                 i +=1;
                 line = [
                     [path[i-1][0],path[i-1][1]], 
                     [path[i][0],path[i][1]]
                     ];
+
+                geojson.features[1].geometry.coordinates = []
                 length = ruler.lineDistance(line);
 
                 //reset time for segment
@@ -602,10 +625,18 @@ map.on('load', function() {
 
                 if (length == 0) {
                     //continue;
+                    //appending feature
+                    feature = {};
+                    feature['type'] = 'Feature';
+                    feature['geometry'] = {'type': 'Point',
+                                           'coordinates': [line[0][0], line[0][1]]
+                                           };
+                    geojson['features'].push(feature);
                    // animation = requestAnimationFrame(animateLine);
                    console.log("stop - elapsed time" + el_time + 's');
-                   geojson.features[i-1].geometry.type = 'Point'
-                   geojson.features[i-1].geometry.coordinates = [path[i][0],path[i][1]];
+                   
+                   //geojson.features[i-1].geometry.type = 'Point'
+                   //geojson.features[i-1].geometry.coordinates = [path[i][0],path[i][1]];
                 } else {
                     vel = length / el_time;
                     
@@ -613,7 +644,7 @@ map.on('load', function() {
                     x_y = ruler.along(line, c_pos);
                     x = x_y[0];
                     y = x_y[1];
-                    geojson.features[i-1].geometry.coordinates.push([x, y]);
+                    geojson.features[1].geometry.coordinates.push([x, y]);
                     // then update the map
                     map.getSource('line-animation').setData(geojson);
 
@@ -624,7 +655,9 @@ map.on('load', function() {
             } 
         } else {   
             
-            if (length == 0) {}
+            if (length == 0) {
+                map.getSource('line-stops').setData(geojson)
+            }
             else { 
                 c_pos = vel * ((progress/(1000)*speed_fac));
                 x_y = ruler.along(line, c_pos);
@@ -634,7 +667,7 @@ map.on('load', function() {
                 // draw a sine wave with some math.
                 //var y = Math.sin(x * Math.PI / 90) * 40;
                 // append new coordinates to the lineString
-                geojson.features[i-1].geometry.coordinates.push([x, y]);
+                geojson.features[1].geometry.coordinates.push([x, y]);
                 // then update the map
                 map.getSource('line-animation').setData(geojson);
             }
