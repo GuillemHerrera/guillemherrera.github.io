@@ -221,12 +221,14 @@ map.on('load', function() {
                 if (length == 0) {
                     //continue;
                     //appending feature
+                    /* adding point
                     feature = {};
                     feature['type'] = 'Feature';
                     feature['geometry'] = {'type': 'Point',
                                            'coordinates': [line[0][0], line[0][1]]
                                            };
                     geojson['features'].push(feature);
+                    */
                    // animation = requestAnimationFrame(animateLine);
                    console.log("stop - elapsed time" + el_time + 's');
                    
@@ -251,7 +253,7 @@ map.on('load', function() {
         } else {   
             
             if (length == 0) {
-                map.getSource('line-stops').setData(geojson)
+                //map.getSource('line-stops').setData(geojson)
             }
             else { 
                 c_pos = vel * ((progress/(1000)*speed_fac));
