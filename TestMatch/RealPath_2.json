@@ -7,7 +7,7 @@
       "tiles": [
         "https://tilemaps.icgc.cat/tileserver/tileserver.php/mtc25mcatoff_7a13/{z}/{x}/{y}.pbf"
       ],
-      "maxzoom": 18,
+      "maxzoom": 13,
       "attribution": "Mapa &copy; <a href='http://www.icgc.cat'>Institut Cartogràfic i Geològic de Catalunya</a>"
     },
     "mtc25mcomplet": {
@@ -15,7 +15,7 @@
       "tiles": [
         "https://tilemaps.icgc.cat/tileserver/tileserver.php/mtc25mcomplet/{z}/{x}/{y}.pbf"
       ],
-      "maxzoom": 18,
+      "maxzoom": 13,
       "attribution": "Mapa &copy; <a href='http://www.icgc.cat'>Institut Cartogràfic i Geològic de Catalunya</a>"
     },
     "codiscarr25m": {
@@ -23,7 +23,7 @@
       "tiles": [
         "https://tilemaps.icgc.cat/tileserver/tileserver.php/codiscarr25m/{z}/{x}/{y}.pbf"
       ],
-      "maxzoom": 18,
+      "maxzoom": 13,
       "attribution": "Mapa &copy; <a href='http://www.icgc.cat'>Institut Cartogràfic i Geològic de Catalunya</a>"
     },
     "catpol": {
@@ -31,14 +31,14 @@
       "tiles": [
         "https://tilemaps.icgc.cat/tileserver/tileserver.php/catpol4326/{z}/{x}/{y}.pbf"
       ],
-      "maxzoom": 18
+      "maxzoom": 13
     },
     "pictogrames": {
       "type": "vector",
       "tiles": [
         "https://tilemaps.icgc.cat/tileserver/tileserver.php/pictogrames/{z}/{x}/{y}.pbf"
       ],
-      "maxzoom": 18,
+      "maxzoom": 13,
       "attribution": "Mapa &copy; <a href='http://www.icgc.cat'>Institut Cartogràfic i Geològic de Catalunya</a>"
     },
     "toponimia": {
@@ -46,7 +46,7 @@
       "tiles": [
         "http://betaserver.icgc.cat/tileserver3/tileserver.php/redtopo/{z}/{x}/{y}.pbf"
       ],
-      "maxzoom": 18,
+      "maxzoom": 13,
       "attribution": "Mapa &copy; <a href='http://www.icgc.cat'>Institut Cartogràfic i Geològic de Catalunya</a>"
     },
     "normals": {
@@ -55,7 +55,7 @@
         "https://tilemaps.icgc.cat/tileserver/tileserver.php/mapboxTerrain/{z}/{x}/{y}.png"
       ],
       "tileSize": 256,
-      "maxzoom": 18
+      "maxzoom": 13
     },
     "openmaptiles": {
       "type": "vector",
@@ -362,7 +362,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 12,
       "maxzoom": 18,
       "filter": [
         "all",
@@ -392,7 +392,7 @@
           "base": 1.55,
           "stops": [
             [
-              12,
+              14,
               0.25
             ],
             [
@@ -11818,7 +11818,7 @@
       "source": "mtc25mcatoff",
       "source-layer": "edificacio_a_escala_0_pol",
       "minzoom": 13,
-      "maxzoom": 19,
+      "maxzoom": 18,
       "filter": [
         ">",
         "elevation",
