@@ -59,7 +59,10 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "https://free.tilehosting.com/data/v3.json?key=QLOqi8gs14T1s1yjnRMO"
+      "tiles": [
+        "https://maps.tilehosting.com/data/v3.json?key=2PjmDsrA362q6tSETbtE"
+        ],
+    "maxzoom": 18
     },
     "terrainICGC": {
       "type": "raster",
@@ -92,7 +95,7 @@
       "filter": [
         "all",
         [
-          "in",
+          "==",
           "$type",
           "Polygon"
         ],
@@ -103,8 +106,10 @@
         ]
       ],
       "paint": {
-        "fill-color": "#A5C5A5",
-        "fill-opacity": 0.3
+        "fill-color": "#DAE5D4",
+        "fill-opacity": 1,
+        "fill-translate-anchor": "map",
+        "fill-outline-color": "#DAE5D4"
       },
       "layout": {
         "visibility": "visible"
