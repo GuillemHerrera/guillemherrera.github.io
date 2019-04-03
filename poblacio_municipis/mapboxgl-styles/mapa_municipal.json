@@ -1,0 +1,56 @@
+{
+  "version": 8,
+  "name": "Mapa Municipal",
+  "metadata": {
+    "mapbox:autocomposite": true
+  },
+  "center":  [-2, 40],
+  "zoom": 5,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "municipios": {
+      "type": "vector",
+      "tiles": [
+        "https://guillemherrera.github.io/poblacio_municipis/cat_munis_tiles/{z}/{x}/{y}.pbf"
+      ],
+      "attribution": "Base Municipal &copy; <a href='http://centrodedescargas.cnig.es/CentroDescargas/index.jsp'>Instituto Geográfico Nacional</a>",
+      "maxzoom": 8
+    }
+  },
+  "glyphs": "https://som-labs.github.io/somenergia-maps/data/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgb(16, 16, 16)"
+      }
+    },
+    {
+      "id": "municipios",
+      "type": "fill",
+      "source": "municipios",
+      "source-layer": "cat_munis",
+      "paint": {
+        "fill-color": {
+          "property": "1991",
+          "type": "interval",
+          "stops": [
+            [0, "#ffffff"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    }
+    
+  ]
+}
