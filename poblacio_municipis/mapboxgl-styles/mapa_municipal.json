@@ -34,7 +34,7 @@
       "source-layer": "cat_munis",
       "paint": {
         "fill-color": {
-          "property": "1991",
+          "property": "1990",
           "type": "interval",
           "stops": [
             [0, "#ffffff"],
@@ -48,6 +48,16 @@
             [100000, "#b10026"]
           ]
         }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+     {
+      "id": "municipios_2",
+      "type": "fill",
+      "source": "municipios",
+      "source-layer": "cat_munis",
+      "paint": {
+        "fill-color": "#ffffff"
       },
       "filter": ["==", "$type", "Polygon"]
     }
