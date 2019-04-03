@@ -31,7 +31,7 @@
       "id": "municipios",
       "type": "fill",
       "source": "municipios",
-      "source-layer": "pob_munis",
+      "source-layer": "pob_municipisgeojson",
       "paint": {
         "fill-color": {
           "property": "1991",
