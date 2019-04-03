@@ -31,7 +31,7 @@
       "id": "municipios",
       "type": "fill",
       "source": "municipios",
-      "source-layer": "cat_munis",
+      "source-layer": "pob_municipis",
       "paint": {
         "fill-color": {
           "property": "1990",
@@ -55,7 +55,7 @@
       "id": "municipios_2",
       "type": "fill",
       "source": "municipios",
-      "source-layer": "cat_munis",
+      "source-layer": "pob_municipis",
       "paint": {
         "fill-color": "#ffffff"
       },
