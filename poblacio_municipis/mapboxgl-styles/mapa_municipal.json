@@ -27,6 +27,17 @@
         "background-color": "rgb(16, 16, 16)"
       }
     },
+    
+     {
+      "id": "municipios_2",
+      "type": "fill",
+      "source": "municipios",
+      "source-layer": "pobmunis",
+      "paint": {
+        "fill-color": "#ffffff"
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
     {
       "id": "municipios",
       "type": "fill",
@@ -34,7 +45,7 @@
       "source-layer": "pobmunis",
       "paint": {
         "fill-color": {
-          "property": "1990",
+          "property": "1900",
           "type": "interval",
           "stops": [
             [0, "#ffffff"],
@@ -51,15 +62,28 @@
       },
       "filter": ["==", "$type", "Polygon"]
     },
-     {
-      "id": "municipios_2",
-      "type": "fill",
+    {
+      "id": "cat_munis-label",
+      "type": "symbol",
       "source": "municipios",
       "source-layer": "pobmunis",
+      
+      "minzoom": 8,
+      "filter": [
+        "all"
+      ],
       "paint": {
-        "fill-color": "#ffffff"
-      },
-      "filter": ["==", "$type", "Polygon"]
+        "text-color": "#000",
+        "text-halo-color": "#FFF",
+        "text-halo-width": 1
+       },
+      "layout": {
+        "text-font": ["Open Sans Bold"],
+        "text-field": "{nom_muni}",
+        "text-allow-overlap": false,
+        "text-padding": 10,
+        "text-size": 12
+      }
     }
     
   ]
