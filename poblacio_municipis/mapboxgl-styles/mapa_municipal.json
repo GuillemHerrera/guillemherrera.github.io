@@ -9,7 +9,7 @@
   "bearing": 0,
   "pitch": 0,
   "sources": {
-    "municipios": {
+    "municipis": {
       "type": "vector",
       "tiles": [
         "https://guillemherrera.github.io/poblacio_municipis/cat_munis_tiles/{z}/{x}/{y}.pbf"
@@ -18,7 +18,7 @@
       "maxzoom": 8
     }
   },
-  "glyphs": "https://som-labs.github.io/somenergia-maps/data/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://betaserver.icgc.cat/glyphs/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -27,28 +27,41 @@
         "background-color": "rgb(16, 16, 16)"
       }
     },
-    
-     {
-      "id": "municipios_2",
-      "type": "fill",
-      "source": "municipios",
-      "source-layer": "pobmunis",
-      "paint": {
-        "fill-color": "#ffffff"
-      },
-      "filter": ["==", "$type", "Polygon"]
-    },
     {
-      "id": "municipios",
+      "id": "1900",
       "type": "fill",
-      "source": "municipios",
-      "source-layer": "pobmunis",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
       "paint": {
         "fill-color": {
           "property": "1900",
           "type": "interval",
           "stops": [
-            [0, "#ffffff"],
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },     
+    {
+      "id": "1986",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-color": {
+          "property": "1986",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
             [100, "#ffffcc"],
             [1000, "#ffeda0"],
             [2000, "#fed976"],
@@ -63,10 +76,10 @@
       "filter": ["==", "$type", "Polygon"]
     },
     {
-      "id": "cat_munis-label",
+      "id": "cat_munis_label",
       "type": "symbol",
-      "source": "municipios",
-      "source-layer": "pobmunis",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
       
       "minzoom": 8,
       "filter": [
