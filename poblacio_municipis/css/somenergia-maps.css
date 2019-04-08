@@ -9,3 +9,39 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+#animate-layers{
+
+      width: 45px;
+      height: 45px;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+
+.vel-btn{
+  background-color: #8B9EEF;
+}
+
+#year-content {
+      position: absolute;
+      top: 20px;
+      right: 45%;
+}
+.year-display {
+
+ 
+  padding: 4px 10px 4px 7px;
+  margin-right: 10px;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px #888888;
+  color: #000000;
+  background-color: #ffffff;
+  margin: 0px 4% 0 4%;
+
+}

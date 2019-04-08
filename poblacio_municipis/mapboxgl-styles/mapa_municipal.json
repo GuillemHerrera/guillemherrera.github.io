@@ -28,13 +28,457 @@
       }
     },
     {
+      "id": "1857",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1857",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1860",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1860",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1877",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1877",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1887",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1887",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
       "id": "1900",
       "type": "fill",
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+      	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1900",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1910",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1910",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1920",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1920",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1930",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1930",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1936",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1936",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1940",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1940",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1945",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1945",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1950",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1950",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1955",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1955",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1960",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1960",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1965",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1965",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },{
+      "id": "1970",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1970",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1975",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1975",
+          "type": "interval",
+          "stops": [
+            [0, "#ff0000"],
+            [100, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [2000, "#fed976"],
+            [5000, "#feb24c"],
+            [10000, "#fd8d3c"],
+            [20000, "#fc4e2a"],
+            [50000, "#e31a1c"],
+            [100000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "1981",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1981",
           "type": "interval",
           "stops": [
             [0, "#ff0000"],
@@ -57,6 +501,8 @@
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+      	"fill-opacity": 0,
+      	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1986",
           "type": "interval",
