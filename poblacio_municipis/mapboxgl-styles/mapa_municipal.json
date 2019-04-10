@@ -4,7 +4,7 @@
   "metadata": {
     "mapbox:autocomposite": true
   },
-  "center":  [-2, 40],
+  "center":  [-1.7, 41.4],
   "zoom": 5,
   "bearing": 0,
   "pitch": 0,
@@ -38,15 +38,16 @@
           "property": "1857",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -58,20 +59,22 @@
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+        "fill-opacity": 0,
       	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1860",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -84,20 +87,22 @@
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+        "fill-opacity": 0,
       	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1877",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -110,20 +115,22 @@
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+        "fill-opacity": 0,
       	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1887",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -136,20 +143,22 @@
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+        "fill-opacity": 0,
       	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1900",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -162,20 +171,22 @@
       "source": "municipis",
       "source-layer": "pob_municipis_INE_4326",
       "paint": {
+        "fill-opacity": 0,
       	"fill-opacity-transition": {"duration":1001},
         "fill-color": {
           "property": "1910",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -194,15 +205,16 @@
           "property": "1920",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -221,15 +233,16 @@
           "property": "1930",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -248,15 +261,16 @@
           "property": "1936",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -274,15 +288,16 @@
           "property": "1940",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -300,15 +315,16 @@
           "property": "1945",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -326,15 +342,16 @@
           "property": "1950",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -352,15 +369,16 @@
           "property": "1955",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -378,15 +396,16 @@
           "property": "1960",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -404,15 +423,16 @@
           "property": "1965",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -429,15 +449,16 @@
           "property": "1970",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -455,15 +476,16 @@
           "property": "1975",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -481,15 +503,16 @@
           "property": "1981",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
@@ -507,20 +530,218 @@
           "property": "1986",
           "type": "interval",
           "stops": [
-            [0, "#ff0000"],
-            [100, "#ffffcc"],
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
             [1000, "#ffeda0"],
-            [2000, "#fed976"],
-            [5000, "#feb24c"],
-            [10000, "#fd8d3c"],
-            [20000, "#fc4e2a"],
-            [50000, "#e31a1c"],
-            [100000, "#b10026"]
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
           ]
         }
       },
       "filter": ["==", "$type", "Polygon"]
     },
+
+    {
+      "id": "1990",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1990",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "1995",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "1995",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "2000",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "2000",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "2005",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "2005",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "2010",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "2010",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "2015",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "2015",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+
+    {
+      "id": "2018",
+      "type": "fill",
+      "source": "municipis",
+      "source-layer": "pob_municipis_INE_4326",
+      "paint": {
+        "fill-opacity": 0,
+        "fill-opacity-transition": {"duration":1001},
+        "fill-color": {
+          "property": "2018",
+          "type": "interval",
+          "stops": [
+            [0, "#B0B0B0"],
+            [1, "#ffffcc"],
+            [500, "#ffffcc"],
+            [1000, "#ffeda0"],
+            [5000, "#fed976"],
+            [10000, "#feb24c"],
+            [20000, "#fd8d3c"],
+            [50000, "#fc4e2a"],
+            [100000, "#e31a1c"],
+            [200000, "#b10026"]
+          ]
+        }
+      },
+      "filter": ["==", "$type", "Polygon"]
+    },
+    
     {
       "id": "cat_munis_label",
       "type": "symbol",

@@ -7,18 +7,28 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon"/>
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet'/>
         <link href='css/somenergia-maps.css' rel='stylesheet'/>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
     </head>
     <body>
         <div id='map'></div>
-        <div id="animate-layers" class="vel-btn">
-          <p class="vel">Animate</p>
-        </div>
+        <div id="title-project">
+            <p>Població a Catalunya. 1870 - 2018</p>
+         </div>
+
          <div id="year-content">
-          <span class="year-display"></span>
+          <p class="year-display"></p>
+         </div>
+        <div id="animate-layers" class="vel-btn">
+          <p>Observa l'evolució temporal <button class="play"></button> </p>
+          <!--<p class="vel">Play</p>-->
+        </div>
+        <div id="canvas-content">
+            <canvas id="myChart" width="400" height="400"></canvas>
         </div>
     </body>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src='js/pob_munis.js'></script>
+    <script src='js/make_charts.js'></script>
 </html>

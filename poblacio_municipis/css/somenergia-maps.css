@@ -12,28 +12,72 @@ body {
 
 #animate-layers{
 
-      width: 45px;
-      height: 45px;
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      border-radius: 15px;
-      cursor: pointer;
-      margin-bottom: 5px;
-    }
+     width: auto;
+	height: auto;
+	position: absolute;
+	bottom: 50%;
+	left: 10px;
+	border-radius: 15px;
+	cursor: pointer;
+	margin-bottom: 4px;
+}
+
+#animate-layers p {
+	margin: 3px 6px 0px 10px;
+}
 
 .vel-btn{
-  background-color: #8B9EEF;
+  background-color: rgba(255, 255, 255, 0.77);
+}
+
+.play{
+
+	width: 0;
+	position: relative;
+	left: 8px;
+	bottom: 3px;
+	height: 17px;
+	background-color: transparent;
+	border:0;
+	border-style: solid;
+	border-width: 10px 0px 9px 15px;
+	border-color: transparent transparent transparent #000;
+	box-sizing: border-box;
+	transition: 100ms all ease;
+  cursor: pointer;
+
+     
+}
+
+#title-project {
+    position: absolute;
+    text-align: center;
+    top: 10px;
+	left: 2%;
+	right: 2%;
+}
+
+#title-project p{
+
+	padding: 4px 10px 4px 7px;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 3px 3px 2px #888888;
+	color: #000000;
+	background-color: #ffffff;
+	margin: 0px 4% 0 4%;
 }
 
 #year-content {
-      position: absolute;
-      top: 20px;
-      right: 45%;
+    position: absolute;
+    top: 45px;
+    right: 40%;
+    left: 40%;
+    text-align: center;
 }
 .year-display {
 
- 
+  min-width: 80px;
   padding: 4px 10px 4px 7px;
   margin-right: 10px;
   text-decoration: none;
@@ -43,5 +87,20 @@ body {
   color: #000000;
   background-color: #ffffff;
   margin: 0px 4% 0 4%;
+  xxdisplay: table-cell;
 
+}
+
+#canvas-content{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 20%;
+	height: 30%;
+	max-width: 350px;
+	min-width: 200px;
+	max-height: 190px;
+	min-height: 150px;
+	background-color: rgba(255, 255, 255, 0.77);
+	border-radius: 5px;
 }
