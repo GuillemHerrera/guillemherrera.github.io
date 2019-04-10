@@ -26,13 +26,12 @@ var slides = [{
 		info:'https://raw.githubusercontent.com/GuillemHerrera/guillemherrera.github.io/master/sources/StandardDistance/description.txt'	
 		},
 		{
-		name:'Weather Mashup',
-		title:'Weather Mashup',
-		//bigimg:'sources/PCA/Baix_Llobregat.png',
-		img:'sources/WeatherMashup/WeatherMashup.jpg',
-		href:'sources/WeatherMashup/index.html',
-		class:'Mapping',
-		//info:'https://raw.githubusercontent.com/GuillemHerrera/guillemherrera.github.io/master/sources/WeatherMashup/description.txt'	
+		name:'Poblacio Catalunya',
+		title:'Interactive Maps',
+		img:'sources/Poblacio_Catalunya/Pob_Cat.png',
+		href: 'poblacio_municipis/index.html',
+		class: 'Mapping',
+		
 		},
 		{
 		name:'Cadastro Mapbox',
@@ -43,4 +42,13 @@ var slides = [{
 		class:'Mapping',
 		info:'https://raw.githubusercontent.com/GuillemHerrera/guillemherrera.github.io/master/sources/Cadastro_3D/description.txt'	
 		},
+		{
+		name:'Weather Mashup',
+		title:'Weather Mashup',
+		//bigimg:'sources/PCA/Baix_Llobregat.png',
+		img:'sources/WeatherMashup/WeatherMashup.jpg',
+		href:'sources/WeatherMashup/index.html',
+		class:'Mapping',
+		//info:'https://raw.githubusercontent.com/GuillemHerrera/guillemherrera.github.io/master/sources/WeatherMashup/description.txt'	
+		}
 		];

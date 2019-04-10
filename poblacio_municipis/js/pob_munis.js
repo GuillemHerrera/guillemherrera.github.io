@@ -1,9 +1,9 @@
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapboxgl-styles/mapa_municipal.json',
-    hash: false,
-    center: [-1.7, 41.4],
-    zoom: 5
+    hash: true,
+    center: [-1.532, 41.8],
+    zoom: 7
 });
 
 var nav = new mapboxgl.NavigationControl();
