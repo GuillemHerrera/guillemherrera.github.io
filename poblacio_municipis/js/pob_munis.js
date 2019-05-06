@@ -1,8 +1,21 @@
+var ne = new mapboxgl.LngLat( 3.33255380, 42.861450310);
+var sw = new mapboxgl.LngLat( 0.15918115, 40.523046520);
+
+var bbox = new mapboxgl.LngLatBounds(sw, ne);
+
+//var bbox_2 = new mapboxgl.LngLatBounds([],[]);
+
+console.log(bbox);
+
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapboxgl-styles/mapa_municipal.json',
     hash: true,
-    center: [-1.517, 41.8],
+    //center: [-1.517, 41.8],
+    bounds: bbox,
+    fitBoundsOptions: {
+		padding: 80 
+  	},
     zoom: 7
 });
 

@@ -4,8 +4,7 @@
   "metadata": {
     "mapbox:autocomposite": true
   },
-  "center": [-1.517, 41.8],
-  "zoom": 7,
+  
   "bearing": 0,
   "pitch": 0,
   "sources": {
